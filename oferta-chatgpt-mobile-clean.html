@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050505">
+  <meta name="description" content="Serviço independente de configuração assistida do ChatGPT.">
+  <title>Configuração Assistida | ChatGPT</title>
+
+  <style>
+    :root {
+      --bg: #050505;
+      --card: #101010;
+      --border: #242424;
+      --text: #ffffff;
+      --muted: #9e9e9e;
+      --accent: #27d39f;
+      --accent-dark: #19ad80;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      padding: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 430px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 28px 22px;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+    }
+
+    .tag {
+      display: inline-block;
+      margin-bottom: 22px;
+      padding: 8px 12px;
+      border: 1px solid rgba(39, 211, 159, 0.25);
+      border-radius: 999px;
+      color: var(--accent);
+      background: rgba(39, 211, 159, 0.07);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(32px, 10vw, 46px);
+      line-height: 1.02;
+      letter-spacing: -0.05em;
+      margin-bottom: 14px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.55;
+      margin-bottom: 28px;
+    }
+
+    .price-area {
+      padding: 22px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 24px;
+    }
+
+    .old-price {
+      color: #777;
+      text-decoration: line-through;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .price {
+      font-size: 52px;
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: -0.06em;
+    }
+
+    .price small {
+      font-size: 18px;
+      letter-spacing: normal;
+    }
+
+    .label {
+      display: block;
+      margin-bottom: 9px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .pix-box {
+      display: flex;
+      gap: 9px;
+      margin-bottom: 13px;
+    }
+
+    .pix-key {
+      flex: 1;
+      min-width: 0;
+      background: #080808;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      padding: 14px 12px;
+      color: #e7e7e7;
+      font-size: 13px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .copy-button {
+      border: 0;
+      border-radius: 13px;
+      background: #242424;
+      color: #fff;
+      padding: 0 15px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .whatsapp {
+      width: 100%;
+      min-height: 56px;
+      border-radius: 15px;
+      background: var(--accent);
+      color: #03110c;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      transition: 0.2s ease;
+    }
+
+    .whatsapp:active {
+      transform: scale(0.98);
+      background: var(--accent-dark);
+    }
+
+    .notice {
+      color: #828282;
+      font-size: 11px;
+      line-height: 1.55;
+      text-align: center;
+    }
+
+    @media (max-width: 360px) {
+      body {
+        padding: 10px;
+      }
+
+      .card {
+        padding: 24px 17px;
+        border-radius: 20px;
+      }
+
+      .pix-box {
+        flex-direction: column;
+      }
+
+      .copy-button {
+        min-height: 45px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="card">
+    <span class="tag">Oferta especial</span>
+
+    <h1>Configuração assistida do ChatGPT</h1>
+
+    <p class="subtitle">
+      Atendimento individual para configurar o ChatGPT no próprio e-mail do cliente.
+      A assinatura oficial, quando desejada, deve ser contratada diretamente pelo titular.
+    </p>
+
+    <section class="price-area">
+      <div class="old-price">De R$ 100,00</div>
+      <div class="price"><small>R$</small> 50</div>
+    </section>
+
+    <span class="label">Chave Pix</span>
+
+    <div class="pix-box">
+      <div class="pix-key" id="pixKey">sidinho1kaa@gmail.com</div>
+      <button class="copy-button" type="button" onclick="copiarPix()">Copiar</button>
+    </div>
+
+    <!-- Substitua SEUNUMERO pelo WhatsApp do Sid com DDI e DDD, apenas números.
+         Exemplo: 5547999999999 -->
+    <a
+      class="whatsapp"
+      href="https://wa.me/SEUNUMERO?text=Ol%C3%A1%2C%20Sid!%20Quero%20enviar%20o%20comprovante."
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Enviar comprovante
+    </a>
+
+    <p class="notice">
+      Serviço independente. Não inclui venda, compartilhamento ou transferência
+      de conta, senha ou assinatura oficial da OpenAI.
+    </p>
+  </main>
+
+  <script>
+    async function copiarPix() {
+      const chave = document.getElementById("pixKey").textContent.trim();
+
+      try {
+        await navigator.clipboard.writeText(chave);
+        alert("Chave Pix copiada!");
+      } catch {
+        const campo = document.createElement("textarea");
+        campo.value = chave;
+        document.body.appendChild(campo);
+        campo.select();
+        document.execCommand("copy");
+        campo.remove();
+        alert("Chave Pix copiada!");
+      }
+    }
+  </script>
+</body>
+</html>
